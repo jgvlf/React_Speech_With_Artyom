@@ -1,9 +1,14 @@
 import React from "react";
+import { LanguageSelection } from "./components/LanguageSelection";
 
 function App() {
+  // console.log(value);
   return (
     <div className="App">
-      <h1>Olá.</h1>
+      <LanguageSelection/>
+      {/* <div>
+        {value}
+      </div> */}
     </div>
   );
 }
