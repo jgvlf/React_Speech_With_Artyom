@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SoundSpeak from "../assets/img/speaker.svg";
 import Artyom from "artyom.js";
 
 
 export function Speaker({children, value}){
-    function getSelectedText(){
-        var selection = window.getSelection().toString().trim();
-        return selection;
-    }
     
     function initializerSpeaker(){
         const artyom = new Artyom();
@@ -23,15 +19,15 @@ export function Speaker({children, value}){
             }).catch((err) => {
                 console.error("Artyom couldn't be initialized: ", err);
             });
-            var selection = getSelectedText();
+            const selection = window.getSelection().toString().trim();
             speak(artyom, selection);
-        }, 2000);
+        }, 500);
     }
     
     function speak(speaker, value){
         console.log(speaker);
-        // console.log(value);
-        speaker.say(value, {lang: value});
+        console.log(value);
+        speaker.say(value);
     }
     return(
         <>
