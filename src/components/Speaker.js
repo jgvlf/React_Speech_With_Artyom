@@ -19,9 +19,11 @@ export function Speaker({children, value}){
             }).catch((err) => {
                 console.error("Artyom couldn't be initialized: ", err);
             });
-            const selection = window.getSelection().toString().trim();
-            speak(artyom, selection);
-        }, 500);
+            setTimeout(()=>{
+                const selection = window.getSelection().toString().trim();
+                speak(artyom, selection);
+            }, 250);
+        }, 250);
     }
     
     function speak(speaker, value){
