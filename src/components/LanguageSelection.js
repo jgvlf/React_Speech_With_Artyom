@@ -9,14 +9,15 @@ export function LanguageSelection(){
         var result = element.value;
         setValue(result);
 }
+const words = ["Olá", "Manual Virtual", "Parafusadeira", "Furadeira", "Esmiril", "Motor de parabrisa"]
+const [word, setWord] = useState(words[0])
 
+function selectWord(){
+    setWord(words[Math.floor(Math.random()*words.length)])
+}
     return(
         <>
-            <Speaker value={value} text={"Olá"}/>
-            <Speaker value={value} text={"Imagem"}/>
-            <Speaker value={value} text={"Furadeira"}/>
-            <Speaker value={value} text={"Parafusadeira"}/>
-            <Speaker value={value}/>
+            <Speaker value={value} text={word}>
                 <h1>Ich Will</h1>
                 <h1>Bem Vindo ao Manual Virtual da Bosch.</h1>
                 <ul>
@@ -48,6 +49,9 @@ export function LanguageSelection(){
                         Usar responsablemente.
                     </p>
                 </div>
+            </Speaker>
+            <button onClick={selectWord}>Press Me</button>
+            <button onClick={()=>{setWord("")}}>Reset</button>
             <select name="language" id="language" defaultValue={"pt-PT"} onChange={getTagValue}>
                 <option value="pt-PT">Português (Brasil)</option>
                 <option value="es-ES">Espanhol (Espanha)</option>

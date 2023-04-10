@@ -20,8 +20,11 @@ export function Speaker({children, text, value}){
                 console.error("Artyom couldn't be initialized: ", err);
             });
             setTimeout(()=>{
-                if(text === undefined){
-                    const selection = window.getSelection().toString().trim();
+                const selection = window.getSelection().toString().trim();
+                if(text === "" && selection === ""){
+                    alert("Erro: Audio não sendo Emitido\nMotivo: Nada foi selecionado")
+                }
+                if(text === "" && selection !== ""){
                     text = selection
                 }
                 speak(artyom, text);
