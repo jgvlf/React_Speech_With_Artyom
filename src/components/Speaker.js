@@ -21,7 +21,7 @@ export function Speaker({text, value}){
             });
             setTimeout(()=>{
                 if(text === undefined){
-                    const selection = window.getSelection.toString().trim()
+                    const selection = window.getSelection().toString().trim();
                     text = selection
                 }
                 speak(artyom, text);
