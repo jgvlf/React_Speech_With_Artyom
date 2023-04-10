@@ -1,6 +1,5 @@
-import React from "react";
-import SoundSpeak from "../assets/img/speaker.svg";
 import Artyom from "artyom.js";
+import React from "react";
 
 
 export function Speaker({children, value}){
@@ -25,22 +24,23 @@ export function Speaker({children, value}){
             }, 250);
         }, 250);
     }
+
+    
     
     function speak(speaker, value){
         console.log(speaker);
         console.log(value);
-        speaker.say(value);
+        speaker.say(value,{
+            onEnd:speaker.shutUp()
+        });
     }
+
+    document.addEventListener("mouseup", initializerSpeaker)
+
     return(
         <>
             <div id="text">
                 {children}
-            </div>
-            <div>
-                <img src={SoundSpeak} alt="Clique para escutar" width={100} height={100}
-                onClick={initializerSpeaker}>
-
-                </img>
             </div>
         </>
     );
