@@ -3,7 +3,7 @@ import React from "react";
 import SoundSpeak from "../assets/img/speaker.svg";
 
 
-export function Speaker({text, value}){
+export function Speaker({children, text, value}){
     
     function initializerSpeaker(){
         const artyom = new Artyom();
@@ -38,6 +38,9 @@ export function Speaker({text, value}){
     }
     return(
         <>
+            <div id="text">
+                {children}
+            </div>
             <div>
                 <img src={SoundSpeak} alt="Clique para escutar" width={100} height={100}
                 onClick={initializerSpeaker}>
